@@ -16,7 +16,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                     {/* Ici le nom*/}
                     <p className='text-7xl'>Antoine</p>{/* Antoine*/}
                     <p className='text-3xl'>Hicham</p>{/* Hicham*/}
-                    <p className='text-3xl'></p>{/* Amélie*/}
+                    <p className='text-3xl'>Amélie</p>{/* Amélie*/}
                     <p className='text-3xl'>Arthur</p>{/* Arthur*/}
                 </main>
             </div>
