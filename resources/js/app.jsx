@@ -5,6 +5,24 @@ import { createRoot } from 'react-dom/client';
 import { createInertiaApp } from '@inertiajs/react';
 import DefaultLayout from './Layouts/DefaultLayout';
 
+import global_fr from "../translations/fr/global.json";
+import global_en from "../translations/en/global.json";
+import i18next from 'i18next';
+import { I18nextProvider } from 'react-i18next';
+
+i18next.init({
+    interpolation: {escapeValue: true},
+    lng: "fr", // Changer par variable pour automatiser
+    resources: {
+        fr: {
+            global: global_fr
+        },
+        en: {
+            global: global_en
+        }
+    }
+})
+
 const appName = import.meta.env.VITE_APP_NAME || 'La faim des temps';
 
 createInertiaApp({
@@ -18,7 +36,11 @@ createInertiaApp({
     setup({ el, App, props }) {
         const root = createRoot(el);
 
-        root.render(<App {...props} />);
+        root.render(
+            <I18nextProvider i18n={i18next}>
+                <App {...props} />
+            </I18nextProvider>
+        );
     },
     progress: {
         color: '#4B5563',

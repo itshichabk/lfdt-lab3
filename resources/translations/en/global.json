@@ -1,0 +1,12 @@
+{
+    "Accueil": {
+        "body":  "Hello World!",
+        "np": "Anything..."
+    },
+    "Test": {
+        "the": "It's a test",
+        "trap": "{{count}} trap",
+        "traps": "{{count}} traps",
+        "name": "There's {{count}} {{name}}"
+    }
+}
