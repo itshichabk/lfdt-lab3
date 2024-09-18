@@ -8,5 +8,15 @@
         "trap": "{{count}} trape",
         "traps": "{{count}} trapes",
         "name": "Il y a {{count}} {{name}}"
+    },
+    "Compte": {
+        "inscription": "S'inscrire",
+        "prenom": "Prénom",
+        "nom": "Nom de famille",
+        "courriel": "Courriel",
+        "telephone": "Téléphone",
+        "mdp": "Mot de passe",
+        "confirmer_mdp": "Confirmer le mot de passe",
+        "deja_inscrit": "Déjà inscrit?"
     }
 }
