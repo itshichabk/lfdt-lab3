@@ -9,7 +9,6 @@
         "traps": "{{count}} traps",
         "name": "There's {{count}} {{name}}"
     },
-
     "Compte": {
         "inscription": "Register",
         "prenom": "First name",

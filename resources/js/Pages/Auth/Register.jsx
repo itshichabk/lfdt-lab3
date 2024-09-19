@@ -5,6 +5,7 @@ import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Head, Link, useForm } from '@inertiajs/react';
 import { useTranslation } from 'react-i18next';
+import PhoneInput, { format, normalize } from "react-phone-input-auto-format";
 
 export default function Register() {
 
@@ -21,6 +22,7 @@ export default function Register() {
 
     const submit = (e) => {
         e.preventDefault();
+        //console.log(data.telephone)
 
         post(route('register'), {
             onFinish: () => reset('password', 'password_confirmation'),
@@ -86,15 +88,10 @@ export default function Register() {
                 <div className="mt-4">
                     <InputLabel htmlFor="telephone" value={t("Compte.telephone")} />
 
-                    <TextInput
+                    <PhoneInput
                         id="telephone"
-                        type="tel"
-                        name="telephone"
-                        value={data.telephone}
+                        onChange={(tel) => { setData('telephone', normalize(tel)); console.log(data.telephone)}}
                         className="mt-1 block w-full"
-                        autoComplete="telephone"
-                        onChange={(e) => setData('telephone', e.target.value)}
-                        required
                     />
 
                     <InputError message={errors.telephone} className="mt-2" />
