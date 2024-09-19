@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProducteurController;
+use App\Http\Middleware\EnsureUserIsLoggedIn;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -10,9 +11,9 @@ Route::get('/', function () {
     return Inertia::render('Accueil', []);
 });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/panier', function () {
+    return Inertia::render('Panier', []);
+})->middleware(EnsureUserIsLoggedIn::class);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
