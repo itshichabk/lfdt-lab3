@@ -8,5 +8,13 @@
         "trap": "{{count}} trape",
         "traps": "{{count}} trapes",
         "name": "Il y a {{count}} {{name}}"
+    },
+    "Header": {
+        "accueil": "Accueil",
+        "menu": "Menu",
+        "valeurs": "Nos valeurs",
+        "producteurs": "Nos producteurs",
+        "histoire": "Notre histoire",
+        "avis": "Votre avis"
     }
 }
