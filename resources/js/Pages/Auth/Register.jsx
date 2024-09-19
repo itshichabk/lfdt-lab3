@@ -22,7 +22,6 @@ export default function Register() {
 
     const submit = (e) => {
         e.preventDefault();
-        //console.log(data.telephone)
 
         post(route('register'), {
             onFinish: () => reset('password', 'password_confirmation'),
@@ -30,7 +29,7 @@ export default function Register() {
     };
 
     return (
-        <GuestLayout>
+        <>
             <Head title="Register" />
 
             <form onSubmit={submit}>
@@ -140,10 +139,10 @@ export default function Register() {
                     </Link>
 
                     <PrimaryButton className="ms-4" disabled={processing}>
-                    {t("Compte.inscription")}
+                        {t("Compte.inscription")}
                     </PrimaryButton>
                 </div>
             </form>
-        </GuestLayout>
+        </>
     );
 }
