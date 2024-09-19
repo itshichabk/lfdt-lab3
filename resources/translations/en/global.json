@@ -1,13 +1,6 @@
 {
     "Accueil": {
-        "body":  "Hello World!",
-        "np": "Anything..."
-    },
-    "Test": {
-        "the": "It's a test",
-        "trap": "{{count}} trap",
-        "traps": "{{count}} traps",
-        "name": "There's {{count}} {{name}}"
+
     },
     "Header": {
         "accueil": "Home",
@@ -15,7 +8,9 @@
         "valeurs": "Our values",
         "producteurs": "Our producers",
         "histoire": "Our story",
-        "avis": "Your opinion"
+        "avis": "Your opinion",
+        "date": "LIMIT DATE TO ORDER :",
+        "connexion" : "Login"
     },
     "Compte": {
         "inscription": "Register",

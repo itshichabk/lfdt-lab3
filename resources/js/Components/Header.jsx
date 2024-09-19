@@ -1,6 +1,7 @@
 import { Link, usePage } from '@inertiajs/react'
-import i18next from 'i18next'
 import { useTranslation } from 'react-i18next';
+import i18next from 'i18next'
+import { useEffect, useState } from 'react';
 
 import logo from '../../../public/img/logo-rect.jpg'
 
@@ -9,12 +10,21 @@ export default function Header() {
     const [t, i18n] = useTranslation("global");
     const url = usePage().url;
     const user = usePage().props.auth.user;
-    console.log(user)
 
     let d = new Date();
     d.setDate(d.getDate() + (1 + 7 - d.getDay()) % 7);
     const options = { weekday: 'long', day: 'numeric', month: 'long' };
-    const date = d.toLocaleDateString('fr-FR', options) + ' à 16:00';
+    const tempDate = d.toLocaleDateString('fr-FR', options) + ' à 16:00';
+
+    const [date, setDate] = useState(tempDate)
+
+    useEffect(() => {
+        if (i18n.language === 'fr') {
+            setDate(d.toLocaleDateString('fr-FR', options) + ' à 16:00')
+        } else {
+            setDate(d.toLocaleDateString('en-EN', options) + ' at 16:00')
+        }
+    }, [i18n.language])
 
     const handleChangeLanguage = (e) => {
         i18next.changeLanguage(e.target.value)
@@ -57,7 +67,7 @@ export default function Header() {
                               <circle cx="12" cy="7" r="4"></circle>
                             </svg>
 
-                            <p className='text-white hidden sm:block text-xs xl:text-base'><strong>{user ? user.name : "Se connecter"}</strong></p>
+                            <p className='text-white hidden sm:block text-xs xl:text-base'><strong>{user ? user.name : t("Header.connexion")}</strong></p>
                         </Link>
 
 
@@ -71,7 +81,7 @@ export default function Header() {
                         </Link>
 
                         {/* Langue*/}
-                        <select className='m-4 bg-[#041a37] border-none text-white' onChange={(e) => handleChangeLanguage(e)}>
+                        <select className='m-4 bg-[#041a37] border-none text-white' onChange={(e) => handleChangeLanguage(e)} defaultValue={i18n.language}>
                             <option value="fr">FR</option>
                             <option value="en">EN</option>
                         </select>
@@ -91,7 +101,7 @@ export default function Header() {
 
             {/* flash*/}
             <div className='py-4 text-sm text-white bg-[#BB285C] text-center'>
-                <p><strong>DATE LIMITE POUR COMMANDER :</strong> <span className='block sm:inline'>{date.toUpperCase()}</span></p>
+                <p><strong>{t("Header.date")}</strong> <span className='block sm:inline'>{date.toUpperCase()}</span></p>
             </div>
         </header>
     );
