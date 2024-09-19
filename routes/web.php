@@ -9,7 +9,7 @@ use Inertia\Inertia;
 
 Route::get('/', function () {
     return Inertia::render('Accueil', []);
-});
+})->name('accueil');
 
 Route::get('/panier', function () {
     return Inertia::render('Panier', []);
